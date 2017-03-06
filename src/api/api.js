@@ -3,10 +3,10 @@
  */
 import axios from 'axios'
 
-let base = 'http://114.55.218.209:3000'
+// let base = 'http://114.55.218.209:3000'
 
 export const requestLogin = params => {
-  return axios.post(`${base}/users/login`, params).then(res => res.data)
+  return axios.post(`/webapi/users/login`, params).then(res => res.data)
 }
 
 // export const getUserList = params => { return axios.get(`${base}/user/list`, { params: params }) }

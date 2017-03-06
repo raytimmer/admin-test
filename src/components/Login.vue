@@ -43,9 +43,22 @@
       submitForm (formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!')
+            // alert('submit!')
             var loginParams = {user_name: this.ruleForm.account, password: this.ruleForm.checkPass}
-            requestLogin(loginParams)
+            requestLogin(loginParams).then(datap => {
+              let {success, data} = datap
+              if (success === 1) {
+                console.log(data)
+                sessionStorage.setItem('data', JSON.stringify(datap.data))
+                this.$router.push({path: './App'})
+              } else {
+                this.$notify({
+                  title: '错误',
+                  message: datap.error.message,
+                  type: 'error'
+                })
+              }
+            })
           } else {
             console.log('error submit!!')
             return false
