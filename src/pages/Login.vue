@@ -1,5 +1,4 @@
 <template>
-  <div id="login">
     <el-form class="card-box loginform" :model="ruleForm" :rules="rules" ref="ruleForm">
       <h3 class="title">系统登录</h3>
       <el-form-item prop="account">
@@ -14,8 +13,6 @@
         <!--<el-button @click.native.prevent="">重置</el-button>-->
       </el-form-item>
     </el-form>
-  </div>
-
 </template>
 
 <script>
@@ -48,8 +45,8 @@
             requestLogin(loginParams).then(datap => {
               let {success, data} = datap
               if (success === 1) {
-                console.log(data)
-                sessionStorage.setItem('data', JSON.stringify(datap.data))
+                // console.log(data)
+                sessionStorage.setItem(data, JSON.stringify(datap.data))
                 this.$router.push({path: './App'})
               } else {
                 this.$notify({
@@ -69,71 +66,10 @@
         this.$refs[formName].resetFields()
       }
     }
-    /* data () {
-     return {
-     logining: false,
-     ruleForm2: {
-     account: 'admin',
-     checkPass: '123456'
-     },
-     rules2: {
-     account: [
-     { required: true, message: '请输入账号', trigger: 'blur' }
-     // { validator: validaePass }
-     ],
-     checkPass: [
-     { required: true, message: '请输入密码', trigger: 'blur' }
-     // { validator: validaePass2 }
-     ]
-     },
-     checked: true
-     }
-     },
-     methods: {
-     handleReset2 () {
-     this.$refs.ruleForm2.resetFields()
-     },
-     handleSubmit2 (ev) {
-     // var _this = this
-     this.$refs.ruleForm2.validate((valid) => {
-     if (valid) {
-     // _this.$router.replace('/table');
-     this.logining = true
-     // NProgress.start()
-     // var loginParams = { username: this.ruleForm2.account, password: this.ruleForm2.checkPass }
-     /!* requestLogin(loginParams).then(data => {
-     this.logining = false
-     NProgress.done()
-     let { msg, code, user } = data;
-     if (code !== 200) {
-     this.$notify({
-     title: '错误',
-     message: msg,
-     type: 'error'
-     })
-     } else {
-     sessionStorage.setItem('user', JSON.stringify(user))
-     this.$router.push({ path: '/table' })
-     }
-     }) *!/
-     } else {
-     console.log('error submit!!')
-     return false
-     }
-     })
-     }
-     } */
   }
 </script>
 
 <style>
-  #login {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url("../assets/login_bg.png");
-  }
-
   .card-box {
     padding: 20px;
     /*box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);*/
