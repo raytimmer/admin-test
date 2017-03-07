@@ -2,21 +2,30 @@ import Vue from 'vue'
 import Router from 'vue-router'
 // import Hello from '@/components/Hello'
 import Login from '@/pages/Login'
-import Header from '@/components/Header'
+import Index from '@/pages/Index'
+import pageHeader from '@/components/page-header'
 
 Vue.use(Router)
 
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'Login',
-      component: Login
-    },
-    {
-      path: '/',
-      name: 'Header',
-      component: Header
-    }
-  ]
-})
+export default new Router(
+  {
+    routes: [
+      {
+        path: '/',
+        component: Login,
+        name: '',
+        hidden: false
+      },
+      {
+        path: '/index',
+        component: Index,
+        name: '首页'
+      },
+      {
+        path: '/index',
+        component: pageHeader,
+        name: '头部'
+      }
+    ]
+  }
+)

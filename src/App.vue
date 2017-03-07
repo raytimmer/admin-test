@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <!--<img src="./assets/logo.png">-->
-
     <router-view></router-view>
   </div>
 </template>
@@ -64,7 +62,7 @@ export default {
     /*background: url(assets/bg1.jpg) center !important;
         background-size: cover;*/
     /*background: #1F2D3D;*/
-    background: url("./assets/login_bg.png");
+
     font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
     /*font-weight: 400;*/
     font-size:14px;
@@ -76,6 +74,7 @@ export default {
     top: 0px;
     bottom: 0px;
     width: 100%;
+    /*background: url("./assets/login_bg.png");*/
   }
 
   .el-submenu [class^=fa] {

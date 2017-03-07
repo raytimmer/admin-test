@@ -1,4 +1,5 @@
 <template>
+  <div id="login">
     <el-form class="card-box loginform" :model="ruleForm" :rules="rules" ref="ruleForm">
       <h3 class="title">系统登录</h3>
       <el-form-item prop="account">
@@ -13,6 +14,7 @@
         <!--<el-button @click.native.prevent="">重置</el-button>-->
       </el-form-item>
     </el-form>
+  </div>
 </template>
 
 <script>
@@ -44,10 +46,10 @@
             var loginParams = {user_name: this.ruleForm.account, password: this.ruleForm.checkPass}
             requestLogin(loginParams).then(datap => {
               let {success, data} = datap
+              var user = data
               if (success === 1) {
-                // console.log(data)
-                sessionStorage.setItem(data, JSON.stringify(datap.data))
-                this.$router.push({path: './App'})
+                sessionStorage.setItem('user', JSON.stringify(user))
+                this.$router.push('/index')
               } else {
                 this.$notify({
                   title: '错误',
@@ -70,6 +72,13 @@
 </script>
 
 <style>
+  #login {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    background: url("../assets/login_bg.png");
+  }
   .card-box {
     padding: 20px;
     /*box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);*/
