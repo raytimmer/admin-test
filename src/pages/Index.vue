@@ -1,29 +1,31 @@
 <template>
   <div id="index">
     <pageHeader :sysUserName="sysUserName"></pageHeader>
-    <span>我是index页面</span>
+    <sideBar></sideBar>
   </div>
 </template>
 
 <script>
   import pageHeader from '../components/page-header.vue'
+  import sideBar from '../components/side-bar.vue'
 export default {
-  data () {
-    var user = JSON.parse(sessionStorage.getItem('user'))
-    var sysUserName = user.user_name
-    var cookie = {
-      sysUserName: user.user_name,
-      sysUserAvatar: ''
+    data () {
+      var user = JSON.parse(sessionStorage.getItem('user'))
+      var sysUserName = user.user_name
+      var cookie = {
+        sysUserName: user.user_name,
+        sysUserAvatar: ''
+      }
+      return {
+        cookie,
+        sysUserName
+      }
+      // console.log(sysUserName)
+    },
+    components: {
+      pageHeader,
+      sideBar
     }
-    return {
-      cookie,
-      sysUserName
-    }
-    // console.log(sysUserName)
-  },
-  components: {
-    pageHeader
-  }
 }
 </script>
 

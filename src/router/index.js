@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Login from '@/pages/Login'
 import Index from '@/pages/Index'
 import pageHeader from '@/components/page-header'
+import sideBar from '@/components/side-bar'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router(
       {
         path: '/index',
         component: pageHeader,
+        name: '头部'
+      },
+      {
+        path: '/index',
+        component: sideBar,
         name: '头部'
       }
     ]
