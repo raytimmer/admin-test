@@ -1,6 +1,6 @@
 <template>
   <div id="index">
-    <pageHeader></pageHeader>
+    <pageHeader :sysUserName="sysUserName"></pageHeader>
     <span>我是index页面</span>
   </div>
 </template>
@@ -8,10 +8,18 @@
 <script>
   import pageHeader from '../components/page-header.vue'
 export default {
-  name: 'Index',
   data () {
-    // console.log(sessionStorage.getItem('user'))
-    return {}
+    var user = JSON.parse(sessionStorage.getItem('user'))
+    var sysUserName = user.user_name
+    var cookie = {
+      sysUserName: user.user_name,
+      sysUserAvatar: ''
+    }
+    return {
+      cookie,
+      sysUserName
+    }
+    // console.log(sysUserName)
   },
   components: {
     pageHeader
