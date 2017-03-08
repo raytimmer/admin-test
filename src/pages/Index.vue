@@ -1,6 +1,7 @@
 <template>
   <div id="index">
     <pageHeader :sysUserName="sysUserName"></pageHeader>
+
     <sideBar></sideBar>
   </div>
 </template>
@@ -30,5 +31,18 @@ export default {
 </script>
 
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
 
+  a {
+    cursor: pointer;
+  }
+
+  li {
+    list-style: none;
+  }
 </style>

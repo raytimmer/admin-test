@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "bootstrap": "^3.3.7",
     "element-ui": "^1.2.3",
     "flex.css": "^1.1.6",
     "font-awesome": "^4.7.0",

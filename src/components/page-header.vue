@@ -17,8 +17,15 @@
           </el-col>
           <el-col :xs="12" :sm="12" :md="12" :lg="12">
             <li>
-              <div class="user_pic"></div>
-              <span>{{ sysUserName }}</span>
+              <el-dropdown>
+                <span class="el-dropdown-link">{{ sysUserName }}<i
+                  class="el-icon-caret-bottom el-icon--right"></i></span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item>个人中心</el-dropdown-item>
+                  <el-dropdown-item>消息</el-dropdown-item>
+                  <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
             </li>
           </el-col>
         </ul>
@@ -38,8 +45,16 @@
       }
     },
     methods: {
-      handleSelect (key, keyPath) {
-        console.log(key, keyPath)
+      logout: function () {
+        var _this = this
+        this.$confirm('确认退出吗?', '提示', {
+          // type: 'warning'
+        }).then(() => {
+          sessionStorage.removeItem('user')
+          _this.$router.push('/')
+        }).catch(() => {
+
+        })
       }
     }
   }
@@ -62,16 +77,12 @@
     font-size: 32px;
   }
 
-  .user {
-    overflow: hidden;
-  }
-
   .user ul {
     /*display: flex;*/
     margin: 0;
     padding: 0;
     height: 50px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-align: center;
     /*justify-content: space-around;*/
     /*align-items: center;*/
@@ -81,20 +92,29 @@
     margin: 0;
     list-style: none;
     cursor: pointer;
+    line-height: 50px;
   }
 
-  .user ul li i {
+  .user ul li > i {
     margin: 10px 0;
     font-size: 30px;
   }
 
-  .user_pic {
-    display: inline-block;
-    border-radius: 20px;
-    margin: 5px 5px 0 0;
-    background: #fff;
+  .el-dropdown {
+    color: #fff !important;
+    font-size: 18px !important;
+  }
+
+  .el-dropdown span i {
+    font-size: 12px !important;
+  }
+
+  .head {
     width: 40px;
     height: 40px;
+    border-radius: 20px;
+    margin: 10px 0px 10px 10px;
+    float: right;
   }
 
   .user ul li:last-of-type {
