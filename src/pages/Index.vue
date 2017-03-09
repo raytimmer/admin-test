@@ -12,7 +12,7 @@
 export default {
     data () {
       var user = JSON.parse(sessionStorage.getItem('user'))
-      var sysUserName = user.user_name
+      var sysUserName = user.user_name;
       var cookie = {
         sysUserName: user.user_name,
         sysUserAvatar: ''
