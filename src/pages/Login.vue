@@ -49,7 +49,7 @@
               var user = data
               if (success === 1) {
                 sessionStorage.setItem('user', JSON.stringify(user))
-                this.$router.push('/index')
+                this.$router.push('/')
               } else {
                 this.$notify({
                   title: '错误',

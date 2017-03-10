@@ -51,7 +51,7 @@
           // type: 'warning'
         }).then(() => {
           sessionStorage.removeItem('user')
-          _this.$router.push('/')
+          _this.$router.push('/login')
         }).catch(() => {
 
         })

@@ -83,7 +83,15 @@
 
 <script>
   export default {
-    name: 'sideBar'
+    name: 'sideBar',
+    methods: {
+      handleOpen (key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose (key, keyPath) {
+        console.log(key, keyPath);
+      }
+    }
 
   }
 
@@ -101,7 +109,35 @@
     /*z-index: -1;*/
   }
 
-  .sidebar-menu {
+  .sidebar .el-menu {
+    background: none;
+  }
+
+  .sidebar .el-menu .el-submenu .el-submenu__title {
+    border-left: 3px solid transparent;
+  }
+
+  .sidebar .el-menu .el-submenu .el-submenu__title:hover, .sidebar .el-menu li.is-opened > .el-submenu__title, li.el-menu-item.is-active {
+    border-left: 3px solid #3c8dbc;
+    background: none;
+    color: #fff;
+  }
+
+  .sidebar .el-submenu .el-menu {
+    background: #1e282c
+  }
+
+  .sidebar .el-menu-item, .sidebar .el-submenu__title {
+    color: #94a9c7;
+  }
+
+  .sidebar .el-menu-item:hover {
+    background: none !important;
+    color: #fff !important;
+    border-left: 3px solid #3c8dbc;
+  }
+
+  /* .sidebar-menu {
     color: #fff;
   }
 
@@ -169,5 +205,5 @@
 
   .treeview-menu > li.active > a, .treeview-menu > li > a:hover {
     color: #fff;
-  }
+  } */
 </style>
